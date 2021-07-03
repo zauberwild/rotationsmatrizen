@@ -28,7 +28,7 @@ zoom_increment = 0.5
 
 
 # * object creation
-cube = classes.Object("./Test_Cube.stl")
+cube = classes.Object("./cube_ascii.stl")
 
 # * functions for config view
 
@@ -122,16 +122,21 @@ a_scale.grid(row=0, column=2, pady=10, padx=10, sticky=(W,E))
 
 # beta value
 b_frame = tk.Frame(root, background="#1010FF")
-b_frame.grid(row=2, column=0)
+b_frame.grid(row=2, column=0, sticky=(W,E))
+
+tk.Grid.columnconfigure(b_frame, 2, weight=1)
+
 b_label = tk.Label(b_frame, text="Beta (radiant):", padx=10)
-b_label.grid(row=0, column=0)
-b_entry = tk.Entry(b_frame)
-b_entry.grid(row=0, column=1, padx=10)
+b_label.grid(row=0, column=0, padx=10, sticky=(W,E))
+
+b_entry = tk.Entry(b_frame, width=10)
+b_entry.grid(row=0, column=1, padx=10, sticky=(W,E))
 a_entry.bind("<Return>", beta_entry)
 b_entry.insert(0,str(b))
+
 b_scale = tk.Scale(b_frame, from_=-pi, to=pi, orient=tk.HORIZONTAL, length=500, resolution=b_increment, command=beta_scale)
 b_scale.set(b)
-b_scale.grid(row=0, column=20, pady=5)
+b_scale.grid(row=0, column=2, pady=10, padx=10, sticky=(W,E))
 
 # zoom_factor
 z_frame = tk.Frame(root, background="#10FF10")
@@ -144,7 +149,7 @@ z_entry.bind("<Return>", zoom_entry)
 z_entry.insert(0,str(zoom))
 z_scale = tk.Scale(z_frame, from_= 0, to=100, orient=tk.HORIZONTAL, length=500, resolution=zoom_increment, command=zoom_scale)
 z_scale.set(zoom)
-z_scale.grid(row=0, column=20, pady=5)
+z_scale.grid(row=0, column=2, pady=5)
 
 d = 0
 c = 0
