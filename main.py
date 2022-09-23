@@ -32,7 +32,7 @@ zoom_increment = 0.5
 # Autodesk Fusion 360: when exporting a part as an STL, choose ASCII instead of binary
 # info: https://en.wikipedia.org/wiki/STL_(file_format)
 # also: this program isn't too efficient, so maybe choose a file with not too may vertices. The 3D-Benchy is way too much, for my pc at least
-cube = classes.Object("./cube_ascii.stl")
+cube = classes.Object("./Test_Cube.stl")
 
 # * functions for config view
 
